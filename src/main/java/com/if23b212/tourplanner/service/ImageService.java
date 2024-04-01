@@ -33,7 +33,7 @@ public class ImageService {
     }
 
     private String createImageName(Long tourId) {
-        return IMAGE_PREFIX+tourId;
+        return IMAGE_PREFIX+tourId+".png";
     }
 
     public String storeImage(Long tourId, MultipartFile file) {

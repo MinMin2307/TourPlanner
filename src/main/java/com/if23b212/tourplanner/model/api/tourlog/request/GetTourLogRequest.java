@@ -1,4 +1,4 @@
-package com.if23b212.tourplanner.model.api.tourlog;
+package com.if23b212.tourplanner.model.api.tourlog.request;
 
 import com.if23b212.tourplanner.model.api.EntityRequest;
 import lombok.AllArgsConstructor;

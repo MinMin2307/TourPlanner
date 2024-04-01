@@ -1,9 +1,8 @@
-package com.if23b212.tourplanner.model.api.tourlog;
+package com.if23b212.tourplanner.model.api.tourlog.request;
 
 import com.if23b212.tourplanner.model.api.EntityRequest;
 import com.if23b212.tourplanner.model.tour.Tour;
 import com.if23b212.tourplanner.model.tour.TransportType;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,8 +14,8 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateTourLogRequest extends EntityRequest {
-    private Tour tour;
+public class UpdateTourLogRequest extends EntityRequest {
+    private Long id;
     private LocalDateTime create;
     private String comment;
     private int difficulty;

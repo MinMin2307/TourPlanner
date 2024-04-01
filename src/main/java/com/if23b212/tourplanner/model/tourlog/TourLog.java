@@ -24,7 +24,7 @@ public class TourLog {
     private Tour tour;
 
     @Column(nullable = false)
-    private LocalDateTime create;
+    private LocalDateTime createdAt;
 
     private String comment;
 
@@ -40,9 +40,9 @@ public class TourLog {
     @Column(nullable = false)
     private int rating;
 
-    public TourLog(Tour tour, LocalDateTime create, String comment, int difficulty, double totalDistance, double totalTime, int rating) {
+    public TourLog(Tour tour, LocalDateTime createdAt, String comment, int difficulty, double totalDistance, double totalTime, int rating) {
         this.tour = tour;
-        this.create = create;
+        this.createdAt = createdAt;
         this.comment = comment;
         this.difficulty = difficulty;
         this.totalDistance = totalDistance;

@@ -33,6 +33,9 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
     @Autowired
     ImageService imageService;
 
+    @Autowired
+    RouteService routeService;
+
     @Override
     public TourResponse create(EntityRequest createRequest) throws Exception {
         if(createRequest instanceof CreateTourRequest data) {
@@ -46,11 +49,12 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
                     data.getEstimatedTime(),
                     null,
                     new ArrayList<>());
+            routeService.setRouteValues(tour);
             tour = repo.save(tour);
-            String imagePath = imageService.storeImage(tour.getId(), data.getRouteImage());
-            tour.setRouteImagePath(imagePath);
-            tour = repo.save(tour);
-            return new TourResponse(HttpStatus.CREATED, CREATED_SUCCESSFULLY, tour, data.getRouteImage().getResource());
+            //String imagePath = imageService.storeImage(tour.getId(), data.getRouteImage());
+           // tour.setRouteImagePath(imagePath);
+           // tour = repo.save(tour);
+            return new TourResponse(HttpStatus.CREATED, CREATED_SUCCESSFULLY, tour, null);
         } else {
             return new TourResponse(HttpStatus.INTERNAL_SERVER_ERROR, new WrongRequestTypeException().getMessage());
         }
@@ -62,7 +66,7 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
 
            if(repo.existsById(data.getId())) {
                    Tour tour = repo.findById(data.getId()).orElse(null);
-               return new TourResponse(HttpStatus.CREATED, LOADED_SUCCESSFULLY, tour, imageService.loadImage(tour.getRouteImagePath()));
+               return new TourResponse(HttpStatus.OK, LOADED_SUCCESSFULLY, tour, null);
            }
         } else {
             return new TourResponse(HttpStatus.INTERNAL_SERVER_ERROR, new WrongRequestTypeException().getMessage());
@@ -83,13 +87,12 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
                 tour.setDistance(data.getDistance());
                 tour.setEstimatedTime(data.getEstimatedTime());
                 tour = repo.save(tour);
-                return new TourResponse(HttpStatus.OK, UPDATED_SUCCESSFULLY, tour, data.getRouteImage().getResource());
+                return new TourResponse(HttpStatus.OK, UPDATED_SUCCESSFULLY, tour, null);
             }
         } else {
             return new TourResponse(HttpStatus.INTERNAL_SERVER_ERROR, new WrongRequestTypeException().getMessage());
         }
         return new TourResponse(HttpStatus.INTERNAL_SERVER_ERROR, "UNKNOWN ERROR");
-
     }
 
     @Override

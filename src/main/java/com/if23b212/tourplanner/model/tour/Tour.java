@@ -25,9 +25,9 @@ public class Tour {
     private String name;
     @Column(length = 500)
     private String description;
-    @Column(nullable = false)
+    @Column(nullable = false, name = "from_")
     private String from;
-    @Column(nullable = false)
+    @Column(nullable = false, name ="to_")
     private String to;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING) //Enum wird als String gespeichert in der Datenbank
