@@ -4,12 +4,15 @@ import com.if23b212.tourplanner.exception.WrongRequestTypeException;
 import com.if23b212.tourplanner.model.api.EntityRequest;
 import com.if23b212.tourplanner.model.api.tour.request.CreateTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.DeleteTourRequest;
+import com.if23b212.tourplanner.model.api.tour.request.GetTourLogsByTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.UpdateTourRequest;
 import com.if23b212.tourplanner.model.api.tour.response.TourResponse;
 import com.if23b212.tourplanner.model.api.tourlog.request.CreateTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.DeleteTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.GetTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.UpdateTourLogRequest;
+import com.if23b212.tourplanner.model.api.tourlog.response.TourLogListEntry;
+import com.if23b212.tourplanner.model.api.tourlog.response.TourLogListResponse;
 import com.if23b212.tourplanner.model.api.tourlog.response.TourLogResponse;
 import com.if23b212.tourplanner.model.tour.Tour;
 import com.if23b212.tourplanner.model.tourlog.TourLog;
@@ -21,6 +24,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TourLogService implements CrudService<TourLogResponse, EntityRequest> {
@@ -71,6 +75,14 @@ public class TourLogService implements CrudService<TourLogResponse, EntityReques
             return new TourLogResponse(HttpStatus.INTERNAL_SERVER_ERROR, new WrongRequestTypeException().getMessage());
         }
         return new TourLogResponse(HttpStatus.INTERNAL_SERVER_ERROR, "UNKNOWN ERROR");
+    }
+
+    public TourLogListResponse getAllTourLogsByTour(EntityRequest readRequest) throws Exception {
+        if(readRequest instanceof GetTourLogsByTourRequest data) {
+            List<TourLog> tourLogList = repo.findByTourId(data.getId());
+            return new TourLogListResponse(HttpStatus.OK, LOADED_SUCCESSFULLY, tourLogList.stream().map(TourLogListEntry::fromTourLog).toList());
+        }
+        return new TourLogListResponse(HttpStatus.INTERNAL_SERVER_ERROR, "UNKNOWN ERROR");
     }
 
     @Override

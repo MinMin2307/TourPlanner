@@ -35,6 +35,23 @@ const createTour = async (data) => {
     return await response.json();
   };
 
+    
+  const getAllTours = async () => {
+    const response = await fetch(`${baseUrl}/get/all`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: null
+    });
+  
+    if (!response.ok) {
+      throw new Error('Failed to get tour');
+    }
+  
+    return await response.json();
+  };
+
   const updateTour = async (id, data) => {
     const response = await fetch(`${baseUrl}/update/${id}`, {
       method: 'PUT',
@@ -67,5 +84,5 @@ const createTour = async (data) => {
     return await response.json();
   };
   
-  export { createTour, getTour, updateTour, deleteTour };
+  export { createTour, getTour, updateTour, deleteTour, getAllTours };
   

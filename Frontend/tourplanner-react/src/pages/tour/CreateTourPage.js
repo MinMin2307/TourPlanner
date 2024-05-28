@@ -11,7 +11,7 @@ import CreateButton from '../../components/core/CreateButton';
 const CreateTourPage = () => {
   const [name, setName] = useState("minnie");
   const [description, setDescription] = useState("test");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("BIKE");
   const [from, setFrom] = useState("Mexikplatz 1, 1020 Wien");
   const [to, setTo] = useState("Weißenböckstraße 4, 1110 Wien");
 

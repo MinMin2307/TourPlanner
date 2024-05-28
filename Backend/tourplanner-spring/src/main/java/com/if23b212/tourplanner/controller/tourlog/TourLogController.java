@@ -1,9 +1,11 @@
 package com.if23b212.tourplanner.controller.tourlog;
 
+import com.if23b212.tourplanner.model.api.tour.request.GetTourLogsByTourRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.CreateTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.DeleteTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.GetTourLogRequest;
 import com.if23b212.tourplanner.model.api.tourlog.request.UpdateTourLogRequest;
+import com.if23b212.tourplanner.model.api.tourlog.response.TourLogListResponse;
 import com.if23b212.tourplanner.model.api.tourlog.response.TourLogResponse;
 import com.if23b212.tourplanner.service.TourLogService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,17 @@ public class TourLogController {
         try {
             GetTourLogRequest request = new GetTourLogRequest(id);
             TourLogResponse response = tourLogService.read(request);
+            return new ResponseEntity<>(response, response.getStatus());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/get/tour/{id}")
+    public ResponseEntity<TourLogListResponse> getAllTourLogsByTour(@PathVariable Long id) {
+        try {
+            GetTourLogsByTourRequest request = new GetTourLogsByTourRequest(id);
+            TourLogListResponse response = tourLogService.getAllTourLogsByTour(request);
             return new ResponseEntity<>(response, response.getStatus());
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();

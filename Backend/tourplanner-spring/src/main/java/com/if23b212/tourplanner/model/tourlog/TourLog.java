@@ -21,6 +21,7 @@ public class TourLog {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tour_id")
     private Tour tour;
 
     @Column(nullable = false)
