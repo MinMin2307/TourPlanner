@@ -21,7 +21,4 @@ public class CreateTourRequest extends EntityRequest {
     private String from;
     private String to;
     private TransportType type;
-    private double distance;
-    private double estimatedTime;
-    private MultipartFile routeImage;
 }

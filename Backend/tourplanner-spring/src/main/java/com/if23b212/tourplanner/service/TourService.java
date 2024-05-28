@@ -7,6 +7,8 @@ import com.if23b212.tourplanner.model.api.tour.request.CreateTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.DeleteTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.GetTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.UpdateTourRequest;
+import com.if23b212.tourplanner.model.api.tour.response.TourListEntry;
+import com.if23b212.tourplanner.model.api.tour.response.TourListResponse;
 import com.if23b212.tourplanner.model.api.tour.response.TourResponse;
 import com.if23b212.tourplanner.model.tour.Tour;
 import com.if23b212.tourplanner.repo.TourRepo;
@@ -16,12 +18,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TourService implements CrudService<EntityResponse, EntityRequest> {
 
     private final String CREATED_SUCCESSFULLY = "Tour was created successfully";
     private final String LOADED_SUCCESSFULLY = "Tour was loaded successfully";
+    private final String LIST_LOADED_SUCCESSFULLY = "Tourlist was loaded successfully";
     private final String UPDATED_SUCCESSFULLY = "Tour was updated successfully";
     private final String DELETED_SUCCESSFULLY = "Tour was deleted successfully";
 
@@ -45,8 +49,8 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
                     data.getFrom(),
                     data.getTo(),
                     data.getType(),
-                    data.getDistance(),
-                    data.getEstimatedTime(),
+                    0.0,
+                    0.0,
                     null,
                     new ArrayList<>());
             routeService.setRouteValues(tour);
@@ -109,4 +113,9 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
     }
 
 
+    public TourListResponse getAllTours() {
+        List<Tour> tours = repo.findAll();
+
+        return new TourListResponse(HttpStatus.OK, LIST_LOADED_SUCCESSFULLY, tours.stream().map(t -> new TourListEntry(t.getId(), t.getName())).toList());
+    }
 }

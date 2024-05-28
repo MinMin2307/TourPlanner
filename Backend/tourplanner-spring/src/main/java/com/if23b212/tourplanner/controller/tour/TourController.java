@@ -4,12 +4,15 @@ import com.if23b212.tourplanner.model.api.tour.request.CreateTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.DeleteTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.GetTourRequest;
 import com.if23b212.tourplanner.model.api.tour.request.UpdateTourRequest;
+import com.if23b212.tourplanner.model.api.tour.response.TourListResponse;
 import com.if23b212.tourplanner.model.api.tour.response.TourResponse;
 import com.if23b212.tourplanner.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/tour")
@@ -37,6 +40,16 @@ public class TourController {
         try {
             GetTourRequest request = new GetTourRequest(id);
             TourResponse response = tourService.read(request);
+            return new ResponseEntity<>(response, response.getStatus());
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+    @GetMapping("/get/all")
+    public ResponseEntity<TourListResponse> getAllTours() {
+        try {
+            TourListResponse response = tourService.getAllTours();
             return new ResponseEntity<>(response, response.getStatus());
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
