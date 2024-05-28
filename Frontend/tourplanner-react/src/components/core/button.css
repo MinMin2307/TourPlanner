@@ -1,0 +1,40 @@
+.buttonBack {
+    width: 250px;
+    padding: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 2px solid #d16b7d;
+    font-size: 19px;
+    color: white;
+    font-weight: bolder;
+    background-color: #ffc0cb;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.buttonCreate {
+    width: 250px;
+    float: right;
+    padding: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 2px solid #d16b7d;
+    font-size: 19px;
+    color:white;
+    font-weight: bolder;
+    background-color: #ffc0cb;
+}
+
+.buttonBack:hover {
+    background-color: #d16b7d;
+    transition-duration: 0.4s;
+    transform: scale(1.06);
+}
+.buttonCreate:hover {
+    background-color: #d16b7d;
+    transition-duration: 0.4s;
+    transform: scale(1.06);
+}

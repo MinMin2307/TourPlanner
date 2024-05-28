@@ -51,17 +51,21 @@ public class RouteService {
     }
 
     public void calculateRoute(Point start, Point end, Tour tour) {
-        WebClient webClient = WebClient.create();
-        String uri = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s",
-                tour.getType().getMapping(),openRouteServiceApiKey,
-                ""+start.getLon(), ""+start.getLat(), ""+end.getLon(), ""+end.getLat());
+       try {
+           WebClient webClient = WebClient.create();
+           String uri = String.format("https://api.openrouteservice.org/v2/directions/%s?api_key=%s&start=%s,%s&end=%s,%s",
+                   tour.getType().getMapping(),openRouteServiceApiKey,
+                   ""+start.getLon(), ""+start.getLat(), ""+end.getLon(), ""+end.getLat());
 
-        String response = webClient.get()
-                .uri(uri)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-        extractRoutData(response, tour);
+           String response = webClient.get()
+                   .uri(uri)
+                   .retrieve()
+                   .bodyToMono(String.class)
+                   .block();
+           extractRoutData(response, tour);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
     }
 
     public void extractRoutData(String json, Tour tour) {

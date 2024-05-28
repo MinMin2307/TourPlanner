@@ -23,7 +23,7 @@ public class TourController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<TourResponse> createTour(@ModelAttribute CreateTourRequest request) {
+    public ResponseEntity<TourResponse> createTour(@RequestBody CreateTourRequest request) {
         try {
             TourResponse response = tourService.create(request);
             return new ResponseEntity<>(response, response.getStatus());
@@ -45,7 +45,7 @@ public class TourController {
 
     @PutMapping("/update/{id}")
     public ResponseEntity<TourResponse> updateTour(@PathVariable Long id,
-                                                   @ModelAttribute UpdateTourRequest request) {
+                                                   @RequestBody UpdateTourRequest request) {
         try {
             request.setId(id);
             TourResponse response = tourService.update(request);

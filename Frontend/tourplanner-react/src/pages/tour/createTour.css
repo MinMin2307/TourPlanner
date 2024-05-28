@@ -1,0 +1,19 @@
+.createTourPage {
+    display: flex;
+    flex-direction: column; /* Adjust direction if needed */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url("https://static.vecteezy.com/system/resources/previews/009/360/076/non_2x/watercolor-pastel-cloud-background-free-vector.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Ensure children can be positioned absolutely */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column; /* Stack inputs vertically */
+    align-items: center;
+    width: 100%; /* Ensure form takes full width if needed */
+  }
+  
