@@ -36,7 +36,7 @@ const TourListPage = () => {
       <h1 style={{color: '#ffc0cb', marginLeft: '5px', fontSize: '50px'}}>Tour List</h1>
       <ul>
         {tourList.map((tour) => (
-          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name} <p>Klick to view details</p></li>
+          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name} <p style={{borderStyle:'none'}}>Klick to view details</p></li>
         ))}
       </ul>
     </div>

@@ -12,7 +12,7 @@ const TourUpdatePage = () => {
     const [name, setName] = useState("loooool");
     const [description, setDescription] = useState("test");
     const [type, setType] = useState("BIKE");
-    const [from, setFrom] = useState("Mexikoplatz 1, 1020 Wien");
+    const [from, setFrom] = useState("Mexikoplatz 2, 1020 Wien");
     const [to, setTo] = useState("Weißenböckstraße 4, 1110 Wien");
     const navigate = useNavigate();
 
@@ -22,11 +22,11 @@ const TourUpdatePage = () => {
 
     const updateData = () => {
         const data = {
-          "name": name,
-          "description": description,
-          "from": from,
-          "to": to,
-          "type": type
+            "name": name,
+            "description": description,
+            "from": from,
+            "to": to,
+            "type": type
         };
         console.log(data);
         const result = updateTour(id, data);
@@ -61,6 +61,7 @@ const TourUpdatePage = () => {
                  value={to}
                   onChange={(e) => setTo(e.target.value)}
                 />
+
                 <UpdateButton title={"Update Button"} submit={updateData}/>
             </form>
 
