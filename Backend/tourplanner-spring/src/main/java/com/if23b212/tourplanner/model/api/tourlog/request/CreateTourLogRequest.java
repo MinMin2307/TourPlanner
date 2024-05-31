@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class CreateTourLogRequest extends EntityRequest {
     private Long tourId;
-    private LocalDateTime createdAt;
     private String comment;
     private int difficulty;
     private double totalDistance;

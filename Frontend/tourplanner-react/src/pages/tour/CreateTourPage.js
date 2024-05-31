@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createTour } from '../../rest/tourApi';
 
 import FormInput from '../../components/core/FormInput';
 import BackButton from '../../components/core/BackButton';
 import './createTour.css';
 import Dropdown from '../../components/core/Dropdown';
-import { createTour } from '../../rest/tourApi';
 import CreateButton from '../../components/core/CreateButton';
 
 const CreateTourPage = () => {
   const [name, setName] = useState("minnie");
   const [description, setDescription] = useState("test");
   const [type, setType] = useState("BIKE");
-  const [from, setFrom] = useState("Mexikplatz 1, 1020 Wien");
+  const [from, setFrom] = useState("Mexikoplatz 1, 1020 Wien");
   const [to, setTo] = useState("Weißenböckstraße 4, 1110 Wien");
 
   const navigate = useNavigate();

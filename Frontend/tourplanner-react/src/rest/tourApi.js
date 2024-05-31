@@ -35,7 +35,6 @@ const createTour = async (data) => {
     return await response.json();
   };
 
-    
   const getAllTours = async () => {
     const response = await fetch(`${baseUrl}/get/all`, {
       method: 'GET',

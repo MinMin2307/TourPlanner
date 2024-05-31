@@ -28,13 +28,42 @@
     background-color: #ffc0cb;
 }
 
+.buttonDeleteTour {
+    width: 250px;
+    float: right;
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 2px solid #d16b7d;
+    font-size: 19px;
+    color:white;
+    font-weight: bolder;
+    background-color: #ffc0cb;
+
+}
+.buttonUpdate {
+    width: 250px;
+    float: right;
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 2px solid #d16b7d;
+    font-size: 19px;
+    color:white;
+    font-weight: bolder;
+    background-color: #ffc0cb;
+}
+
+
 .buttonBack:hover {
-    background-color: #d16b7d;
     transition-duration: 0.4s;
     transform: scale(1.06);
 }
 .buttonCreate:hover {
-    background-color: #d16b7d;
+    transition-duration: 0.4s;
+    transform: scale(1.06);
+}
+.buttonDeleteTour:hover {
     transition-duration: 0.4s;
     transform: scale(1.06);
 }

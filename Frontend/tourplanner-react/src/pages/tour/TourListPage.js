@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CreateButton from '../../components/core/CreateButton';
 import { getAllTours } from '../../rest/tourApi';
+import './list.css'
+import DeleteButton from '../../components/core/DeleteTourButton';
 
 const TourListPage = () => {
 
@@ -18,7 +20,7 @@ const TourListPage = () => {
         }
     };
     fetchTourList();
-}, [tourList]);
+}, []);
 
   const toCreateTour = () => {
     navigate('/tour/create');
@@ -31,10 +33,12 @@ const TourListPage = () => {
   return (
     <div>
       <CreateButton title="New Tour" submit={toCreateTour} />
-      <h1>Tour List</h1>
-      {tourList.map((tour) => (
-          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name}</li>
+      <h1 style={{color: '#ffc0cb', marginLeft: '5px', fontSize: '50px'}}>Tour List</h1>
+      <ul>
+        {tourList.map((tour) => (
+          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name} <p>Klick to view details</p></li>
         ))}
+      </ul>
     </div>
   );
 };

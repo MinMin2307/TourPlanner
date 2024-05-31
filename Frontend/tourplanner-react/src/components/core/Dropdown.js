@@ -5,7 +5,7 @@ const Dropdown = ({ setValue }) => {
     return (
         <div className="formInput">
             <select name="tourType" id="tourType" onChange={(e) => setValue(e.target.value)}>
-                
+        
                 <option value="BIKE">Bike</option>
                 <option value="HIKE">Hike</option>
                 <option value="RUNNING">Running</option>

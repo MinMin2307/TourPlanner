@@ -47,7 +47,7 @@ public class TourLogService implements CrudService<TourLogResponse, EntityReques
                 Tour tour = tourRepo.findById(data.getTourId()).orElse(null);
                 TourLog tourlog = new TourLog(
                         tour,
-                        data.getCreatedAt(),
+                        LocalDateTime.now(),
                         data.getComment(),
                         data.getDifficulty(),
                         data.getTotalDistance(),

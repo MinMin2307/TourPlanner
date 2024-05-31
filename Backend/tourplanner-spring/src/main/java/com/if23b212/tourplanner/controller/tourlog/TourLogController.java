@@ -24,7 +24,7 @@ public class TourLogController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<TourLogResponse> createTourLog(@ModelAttribute CreateTourLogRequest request) {
+    public ResponseEntity<TourLogResponse> createTourLog(@RequestBody CreateTourLogRequest request) {
         try {
             TourLogResponse response = tourLogService.create(request);
             return new ResponseEntity<>(response, response.getStatus());
@@ -56,7 +56,7 @@ public class TourLogController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<TourLogResponse> updateTourLog(@PathVariable Long id, @ModelAttribute UpdateTourLogRequest request) {
+    public ResponseEntity<TourLogResponse> updateTourLog(@PathVariable Long id, @RequestBody UpdateTourLogRequest request) {
         try {
             request.setId(id); // Ensure the ID from the path variable is correctly set in the request
             TourLogResponse response = tourLogService.update(request);

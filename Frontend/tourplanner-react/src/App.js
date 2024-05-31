@@ -5,6 +5,7 @@ import TourListPage from "./pages/tour/TourListPage";
 import CreateTourPage from "./pages/tour/CreateTourPage";
 import TourPage from "./pages/tour/TourPage";
 import CreateTourLogPage from "./pages/tourlogs/CreateTourLogPage";
+import TourUpdatePage from "./pages/tour/TourUpdatePage";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Route path="/tour/create" element={<CreateTourPage />} />
         <Route path="/tour/:id" element={<TourPage />} />
         <Route path="/tour/log/:id" element={<TourListPage />} />
-        <Route path="/tour/log/create" element={<CreateTourLogPage />} />
+        <Route path="/tour/:id/log/create" element={<CreateTourLogPage />} />
+        <Route path="/tour/:id/update" element = {<TourUpdatePage/>} />
       </Routes>
     </BrowserRouter>
   );
