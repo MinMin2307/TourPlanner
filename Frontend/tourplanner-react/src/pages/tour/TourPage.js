@@ -4,7 +4,6 @@ import { deleteTour, getTour } from '../../rest/tourApi';
 import CreateButton from '../../components/core/CreateButton';
 import BackButton from '../../components/core/BackButton';
 import { getAllTourlogs } from '../../rest/tourLogApi';
-import FormInput from '../../components/core/FormInput';
 import DeleteButton from '../../components/core/DeleteTourButton';
 import TourLogView from '../../components/core/TourLogView';
 import UpdateButton from '../../components/core/UpdateButton';
@@ -74,8 +73,9 @@ const TourPage = () => {
       <CreateButton title={"Create TourLog"} submit={toCreateTourlog} />
       
 
-
-      <li style={{transitionDuration: 'none', transform:'none', marginTop: '100px', marginLeft: '20px', backgroundColor: '#fcdae0'}}>
+      <div className="formInput" style={{ display: 'flex' }}>
+      <li style={{listStyle: 'none', transform:'none', marginTop: '100px', marginLeft: '20px', backgroundColor: '#fcdae0'}}>
+        <h1>TOUR DETAILS</h1>
         <p>Name: {tour?.name}</p>
         <p>Description: {tour?.description}</p>
         <p>From: {tour?.from} </p>
@@ -83,13 +83,18 @@ const TourPage = () => {
         <p>Type: {tour?.type}</p>
         <p>Distance: {tour?.distance}m</p>
         <p>Estimated time: {tour?.estimatedTime}s</p>
-        <DeleteButton title={"Delete"} submit={doDeleteTour} />
-        <UpdateButton title={"Update"} submit={toUpdateTour}/>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', justifyContent: 'flex-end' }}>
+          <DeleteButton title={"Delete"} submit={doDeleteTour} />
+          <UpdateButton title={"Update"} submit={toUpdateTour}/>
+        </div>
       </li>
+     
+      </div>
 
       <ul>
         {tourLogList.map((tourlogEntry, index) => (
           <li style={{transitionDuration: 'none', transform:'none'}}>
+            <h1>TOURLOG DETAILS</h1>
             <TourLogView key={index} tourId={id} tourlog={tourlogEntry} reload={fetchTourLogList} />
           </li>
         ))}

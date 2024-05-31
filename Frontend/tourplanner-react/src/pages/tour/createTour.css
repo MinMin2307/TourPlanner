@@ -4,8 +4,8 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: url("https://static.vecteezy.com/system/resources/previews/009/360/076/non_2x/watercolor-pastel-cloud-background-free-vector.jpg");
     background-size: cover;
+    background: url("https://png.pngtree.com/background/20210711/original/pngtree-simple-and-small-fresh-art-cherry-blossom-advertisement-picture-image_1094298.jpg");
     background-position: center;
     position: relative; 
   }
@@ -16,4 +16,3 @@
     align-items: center;
     width: 100%; 
   }
-  

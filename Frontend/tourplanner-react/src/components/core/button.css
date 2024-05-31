@@ -19,7 +19,7 @@
     float: right;
     padding: 20px;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 20px;
     border: 2px solid #d16b7d;
     font-size: 19px;
@@ -29,6 +29,7 @@
 }
 
 .buttonDeleteTour {
+
     width: 250px;
     float: right;
     padding: 20px;

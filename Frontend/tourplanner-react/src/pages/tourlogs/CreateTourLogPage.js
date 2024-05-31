@@ -17,6 +17,9 @@ const CreateTourLogPage = () => {
   const [totalTime, setTotalTime] = useState("32432432");
   const [rating, setRating] = useState("2");
 
+  const toTourPage = () => {
+    navigate('/tour/'+id);
+  }
   const handleSubmit = () => {
     const data = {
       "tourId": id,
@@ -31,9 +34,7 @@ const CreateTourLogPage = () => {
     console.log(result);
   }
 
-  const toTourPage = () => {
-    navigate('/tour/'+id);
-  }
+ 
 
   return (
     <div className="createTourPage">

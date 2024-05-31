@@ -4,13 +4,15 @@ import CreateButton from '../../components/core/CreateButton';
 import { getAllTours } from '../../rest/tourApi';
 import './list.css'
 import DeleteButton from '../../components/core/DeleteTourButton';
+import './createTour.css';
+
 
 const TourListPage = () => {
 
   const [tourList, setTourList] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  
     const fetchTourList = async () => {
         try {
             const result = await getAllTours();
@@ -19,8 +21,9 @@ const TourListPage = () => {
             console.error('Error fetching tours:', error);
         }
     };
+    useEffect(() => {
     fetchTourList();
-}, []);
+  }, []);
 
   const toCreateTour = () => {
     navigate('/tour/create');
@@ -36,7 +39,7 @@ const TourListPage = () => {
       <h1 style={{color: '#ffc0cb', marginLeft: '5px', fontSize: '50px'}}>Tour List</h1>
       <ul>
         {tourList.map((tour) => (
-          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name} <p style={{borderStyle:'none'}}>Klick to view details</p></li>
+          <li onClick={() =>navigateToTour(tour.id)} key={tour.id}>{tour.name} <p style={{borderStyle:'none', fontSize: '12px'}}>Klick to view details</p></li>
         ))}
       </ul>
     </div>

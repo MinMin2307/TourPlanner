@@ -43,9 +43,9 @@ const toTourPage = () => {
                     <p>rating: {props.tourlog?.rating} Star</p>
                 </span>
             </div>
-            <div style={{justifyContent:"flex-end"}}>
-                <DeleteTourLogButton title={"Delete"} submit={doDeleteTourLog} style={{width:'150px'}}/>
-                <UpdateTourLogButton title={"Update"} submit={toUpdateTourLog} style={{width:'150px', marginTop: '10px'}}/>
+            <div style={{ display: 'flex', flexDirection:'column', marginLeft: '5px'}}>
+                <DeleteTourLogButton title={"Delete"} submit={doDeleteTourLog} style={{width:'150px', backgroundColor: '#d16b7d',  borderColor: 'white'}}/>
+                <UpdateTourLogButton title={"Update"} submit={toUpdateTourLog} style={{width:'150px', marginTop: '10px', backgroundColor: '#d16b7d',  borderColor: 'white'}}/>
 
             </div>
         </div>
