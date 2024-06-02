@@ -9,11 +9,11 @@ import Dropdown from '../../components/core/Dropdown';
 import CreateButton from '../../components/core/CreateButton';
 
 const CreateTourPage = () => {
-  const [name, setName] = useState("minnie");
-  const [description, setDescription] = useState("test");
-  const [type, setType] = useState("BIKE");
-  const [from, setFrom] = useState("Mexikoplatz 1, 1020 Wien");
-  const [to, setTo] = useState("Weißenböckstraße 4, 1110 Wien");
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
+  const [type, setType] = useState();
+  const [from, setFrom] = useState();
+  const [to, setTo] = useState();
 
   const navigate = useNavigate();
   const toTourListPage = () => {
@@ -37,14 +37,14 @@ const CreateTourPage = () => {
     <div className='createTourPage'>
       <BackButton title={"Back"} submit={toTourListPage} />
       <form>
-        <h1 style={{ color: '#ffc0cb', fontWeight: 'bold', fontSize: '60px'}}>CREATE TOUR</h1>
+        <h1 style={{ color: '#ffc0cb', fontWeight: 'bold', fontSize: '60px' }}>CREATE TOUR</h1>
         <FormInput
-          placeholder='tour name'
+          placeholder={'tour name'}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <FormInput
-          placeholder='tour description'
+          placeholder={'tour description'}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
@@ -61,8 +61,8 @@ const CreateTourPage = () => {
           value={to}
           onChange={(e) => setTo(e.target.value)}
         />
-      
-      <CreateButton title={"Create Tour"} submit={handleSubmit} />
+
+        <CreateButton title={"Create Tour"} submit={handleSubmit} />
       </form>
     </div>
   );

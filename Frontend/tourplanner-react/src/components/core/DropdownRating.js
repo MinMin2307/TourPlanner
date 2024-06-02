@@ -1,10 +1,11 @@
 import React from "react";
 import './formInput.css';
 
-const Dropdown = ({ setValue }) => {
+const Dropdown = ({ setValue, selectedValue }) => {
     return (
         <div className="formInput">
-            <select name="tourDifficulty" id="tourDifficulty" onChange={(e) => setValue(e.target.value)}>
+            <select name="tourRating" id="tourRating" onChange={(e) => setValue(e.target.value)} value={selectedValue}>
+                <option value="" disabled>choose rating</option>
                 <option value="1">1 Star</option>
                 <option value="2">2 Star</option>
                 <option value="3">3 Star</option>

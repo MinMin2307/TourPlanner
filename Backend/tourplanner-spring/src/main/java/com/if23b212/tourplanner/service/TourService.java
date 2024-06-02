@@ -88,8 +88,7 @@ public class TourService implements CrudService<EntityResponse, EntityRequest> {
                 tour.setFrom(data.getFrom());
                 tour.setTo(data.getTo());
                 tour.setType(data.getType());
-                tour.setDistance(data.getDistance());
-                tour.setEstimatedTime(data.getEstimatedTime());
+                routeService.setRouteValues(tour);
                 tour = repo.save(tour);
                 return new TourResponse(HttpStatus.OK, UPDATED_SUCCESSFULLY, tour, null);
             }

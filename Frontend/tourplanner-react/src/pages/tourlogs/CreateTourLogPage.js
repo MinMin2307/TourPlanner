@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import BackButton from "../../components/core/BackButton";
 import { createTourlog } from "../../rest/tourLogApi";
@@ -11,46 +11,43 @@ import CreateButton from "../../components/core/CreateButton";
 const CreateTourLogPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [comment, setComment] = useState("minnie");
-  const [difficulty, setDifficulty] = useState("3");
-  const [totalDistance, setTotalDistance] = useState("4342");
-  const [totalTime, setTotalTime] = useState("32432432");
-  const [rating, setRating] = useState("2");
+  const [comment, setComment] = useState();
+  const [difficulty, setDifficulty] = useState();
+  const [totalDistance, setTotalDistance] = useState();
+  const [totalTime, setTotalTime] = useState();
+  const [rating, setRating] = useState();
 
   const toTourPage = () => {
-    navigate('/tour/'+id);
+    navigate('/tour/' + id);
   }
   const handleSubmit = () => {
     const data = {
       "tourId": id,
       "comment": comment,
-      "difficulty": difficulty,
+      "difficulty": difficulty ? difficulty : 1,
       "totalDistance": totalDistance,
       "totalTime": totalTime,
-      "rating": rating
+      "rating": rating ? rating : 1
     };
     console.log(data);
     const result = createTourlog(data);
     console.log(result);
   }
 
- 
+
 
   return (
     <div className="createTourPage">
-      <BackButton title={"Back"} submit={toTourPage}/>
+      <BackButton title={"Back"} submit={toTourPage} />
       <form>
-      <h1 style={{ color: '#ffc0cb', fontWeight: 'bold', fontSize: '60px'}}>CREATE TOURLOG</h1>
-        <FormInput
-          value={id}
-          onChange={()=>{}}
-        />
+        <h1 style={{ color: '#ffc0cb', fontWeight: 'bold', fontSize: '60px' }}>CREATE TOURLOG</h1>
+
         <FormInput
           placeholder={'comment'}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         />
-        <DropdownDifficulty 
+        <DropdownDifficulty
           setValue={setDifficulty}
         />
         <FormInput
@@ -66,13 +63,13 @@ const CreateTourLogPage = () => {
         <DropdownRating
           setValue={setRating}
         />
-        <CreateButton title={"Create Tourlog"} submit={handleSubmit}/>
+        <CreateButton title={"Create Tourlog"} submit={handleSubmit} />
 
       </form>
 
     </div>
   );
-  
+
 };
 
 export default CreateTourLogPage;

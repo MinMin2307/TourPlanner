@@ -10,7 +10,6 @@ const TourLogView = (props) => {
     const navigate = useNavigate();
     const { id } = useParams();
 
-
     const doDeleteTourLog = async () => {
         try {
             const result = await deleteTourLog(props.tourlog.id);
@@ -22,7 +21,7 @@ const TourLogView = (props) => {
     }
 
     const toUpdateTourLog = () => {
-        navigate('/tour/'+ id+ '/log/update')
+        navigate('/tour/'+ id+ '/log/update/'+props.tourlog.id)
     }
 
     

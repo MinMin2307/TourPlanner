@@ -12,8 +12,8 @@ li {
     font-size: 19px;
     color: white;
     background-color: #ffc0cb;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 li:hover {
@@ -27,6 +27,5 @@ p {
     width: 70vh;
     border-radius: 20px;
     border: 2px solid #d16b7d;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
-

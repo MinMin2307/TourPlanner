@@ -23,7 +23,7 @@
     border-radius: 20px;
     border: 2px solid #d16b7d;
     font-size: 19px;
-    color:white;
+    color: white;
     font-weight: bolder;
     background-color: #ffc0cb;
 }
@@ -37,22 +37,39 @@
     border-radius: 20px;
     border: 2px solid #d16b7d;
     font-size: 19px;
-    color:white;
+    color: white;
     font-weight: bolder;
     background-color: #ffc0cb;
 
 }
+
 .buttonUpdate {
     width: 250px;
-    float: right;
+    float: left;
     padding: 20px;
     margin-right: 10px;
     border-radius: 20px;
     border: 2px solid #d16b7d;
     font-size: 19px;
-    color:white;
+    color: white;
     font-weight: bolder;
     background-color: #ffc0cb;
+}
+
+.buttonDownload {
+    width: 250px;
+    padding: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 2px solid #d16b7d;
+    font-size: 19px;
+    color: white;
+    font-weight: bolder;
+    background-color: #ffc0cb;
+    position: absolute;
+    top: 80px;
+    left: 10px;
 }
 
 
@@ -60,14 +77,17 @@
     transition-duration: 0.4s;
     transform: scale(1.06);
 }
+
 .buttonCreate:hover {
     transition-duration: 0.4s;
     transform: scale(1.06);
 }
+
 .buttonDeleteTour:hover {
     transition-duration: 0.4s;
     transform: scale(1.06);
 }
+
 .buttonUpdate:hover {
     transition-duration: 0.4s;
     transform: scale(1.06);
